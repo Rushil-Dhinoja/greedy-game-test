@@ -1,5 +1,5 @@
 import axios from "axios";
-import { SET_TABLE_DATA } from "./Constants";
+import { SET_DATE_FILTER, SET_TABLE_DATA } from "./Constants";
 
 const getNormalizedAppData = (appsData) => {
   const apps = {};
@@ -37,4 +37,11 @@ export const getTableData = () => async (dispatch) => {
   } catch (error) {
     console.log(error);
   }
+};
+
+export const setDateFilter = (dates) => (disptach) => {
+  disptach({
+    type: SET_DATE_FILTER,
+    payload: dates,
+  });
 };

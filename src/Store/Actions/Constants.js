@@ -1,1 +1,2 @@
 export const SET_TABLE_DATA = "SET_TABLE_DATA";
+export const SET_DATE_FILTER = "SET_DATE_FILTER";
