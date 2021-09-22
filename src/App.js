@@ -1,23 +1,24 @@
-import logo from './logo.svg';
-import './App.css';
-
+import { useDispatch } from "react-redux";
+import { getTableData } from "./Store/Actions/TableData";
+import { useEffect } from "react";
+import "./Styles/index.scss";
+import PageTitle from "./Components/PageTitle";
+import Filters from "./Components/Filters";
+import "rsuite/dist/styles/rsuite-default.css";
 function App() {
+  const dispatch = useDispatch();
+
+  useEffect(() => {
+    dispatch(getTableData());
+  });
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <div className="container">
+      <div className="global-sidebar"></div>
+      <div className="data-container">
+        <PageTitle title="Analytics" />
+        <Filters />
+      </div>
     </div>
   );
 }
