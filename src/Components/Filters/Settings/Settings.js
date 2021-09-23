@@ -1,11 +1,16 @@
-import React from 'react';
-import { Button, Icon } from 'rsuite';
+import React from "react";
+import { Button, Icon } from "rsuite";
 
-const Settings = () => {
+const Settings = (props) => {
+  const { isFieldsVisible, setIsFieldsVisible } = props;
+
+  const onClick = () => {
+    setIsFieldsVisible(!isFieldsVisible);
+  };
   return (
     <div>
-      <Button appearance='ghost'>
-        <Icon icon='gear' /> Settings
+      <Button appearance="ghost" onClick={onClick}>
+        <Icon icon="gear" /> Settings
       </Button>
     </div>
   );

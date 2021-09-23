@@ -1,8 +1,12 @@
-import axios from 'axios';
-import { SET_DATE_FILTER, SET_TABLE_DATA } from './Constants';
+import axios from "axios";
+import {
+  SET_DATE_FILTER,
+  SET_TABLE_DATA,
+  SET_VISIBLE_FIELDS,
+} from "./Constants";
 
 const abbreviatedNumber = (number) => {
-  const SI_SYMBOL = ['', 'k', 'M', 'G', 'T', 'P', 'E'];
+  const SI_SYMBOL = ["", "k", "M", "G", "T", "P", "E"];
 
   const tier = (Math.log10(Math.abs(number)) / 3) | 0;
 
@@ -61,14 +65,12 @@ const getMetrics = (tableData, apps) => {
   return metadata;
 };
 
-export const getTableData = () => async (dispatch) => {
+export const getTableData = (dataUrl) => async (dispatch) => {
   try {
-    const tableData = await axios.get(
-      'http://go-dev.greedygame.com/v3/dummy/report?startDate=2021-05-01&endDate=2021-05-03'
-    );
+    const tableData = await axios.get(dataUrl);
 
     const appData = await axios.get(
-      'http://go-dev.greedygame.com/v3/dummy/apps'
+      "http://go-dev.greedygame.com/v3/dummy/apps"
     );
     const apps = getNormalizedAppData(appData.data.data);
     const combinedAppData = getCombinedAppData(apps, tableData.data.data);
@@ -80,6 +82,13 @@ export const getTableData = () => async (dispatch) => {
   } catch (error) {
     console.log(error);
   }
+};
+
+export const setVisibleFields = (field) => (dispatch) => {
+  dispatch({
+    type: SET_VISIBLE_FIELDS,
+    payload: field,
+  });
 };
 
 export const setDateFilter = (dates) => (disptach) => {

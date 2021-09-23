@@ -1,2 +1,3 @@
 export const SET_TABLE_DATA = "SET_TABLE_DATA";
 export const SET_DATE_FILTER = "SET_DATE_FILTER";
+export const SET_VISIBLE_FIELDS = "SET_VISIBLE_FIELDS";
