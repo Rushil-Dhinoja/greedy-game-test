@@ -1,0 +1,38 @@
+.table {
+  width: 100%;
+  min-width: 1000px;
+  margin-top: 6rem;
+  thead {
+    th {
+      font-size: 18px;
+      color: #707070;
+      text-align: left;
+    }
+  }
+  tbody {
+    tr {
+      &:first-child {
+        td {
+          border-top: 1px solid #70707033;
+        }
+      }
+      td {
+        line-height: 22px;
+        font-size: 18px;
+        color: #1d1a1a;
+        padding: 1rem 0;
+        border-bottom: 1px solid #70707033;
+      }
+    }
+  }
+}
+
+.heading {
+  display: flex;
+  flex-direction: column;
+}
+.count {
+  padding: 0.5rem 0 1.5rem 0;
+  font-size: 28px;
+  color: #212121;
+}

@@ -1,11 +1,11 @@
-import React from "react";
-import { Button, Icon } from "rsuite";
+import React from 'react';
+import { Button, Icon } from 'rsuite';
 
 const Settings = () => {
   return (
     <div>
-      <Button appearance="ghost">
-        <Icon icon="gear" /> Settings
+      <Button appearance='ghost'>
+        <Icon icon='gear' /> Settings
       </Button>
     </div>
   );
